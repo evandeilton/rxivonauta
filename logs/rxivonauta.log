@@ -1159,3 +1159,142 @@ dtype: int64
 2025-02-15 15:02:26,652 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
 2025-02-15 15:02:26,653 - src.agents.content_reviewer - INFO - Review saved to /home/jlopes/Dropbox/IA/Agentes/rxivonauta/data/processed/literature_review_20250215_150226.md
 2025-02-15 15:02:26,653 - __main__ - INFO - Pipeline completed in 51.39 seconds
+2025-02-15 15:09:53,675 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-15 15:09:53,700 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-15 15:09:53,700 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-15 15:09:53,714 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-15 15:09:53,714 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-15 15:09:53,732 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-15 15:09:53,732 - __main__ - INFO - Pipeline initialized successfully
+2025-02-15 15:09:53,732 - __main__ - INFO - Starting pipeline for topic: deepseek and openai and google
+2025-02-15 15:09:53,735 - __main__ - INFO - Generating search queries...
+2025-02-15 15:09:53,735 - src.agents.query_generator - INFO - Generating 5 queries for topic: deepseek and openai and google
+2025-02-15 15:09:53,735 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 15:09:53,735 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 15:09:53,735 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 745
+2025-02-15 15:09:54,089 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 15:09:56,027 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 15:09:56,027 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 15:09:56,027 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 15:09:56,027 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 2283
+2025-02-15 15:09:56,110 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 15:10:04,892 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 15:10:04,893 - src.agents.query_generator - INFO - Successfully generated 5 queries
+2025-02-15 15:10:04,894 - __main__ - INFO - Searching Arxiv...
+2025-02-15 15:10:04,894 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: all:DeepSeek AND (all:OpenAI OR all:"Google AI" OR all:Google)
+2025-02-15 15:10:04,894 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28all%3ADeepSeek+AND+%28all%3AOpenAI+OR+all%3A%22Google+AI%22+OR+all%3AGoogle%29%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-15 15:10:05,821 - arxiv - INFO - Got first page: 20 of 20 total results
+2025-02-15 15:10:05,822 - src.agents.arxiv_searcher - INFO - Found 5 articles for query q1
+2025-02-15 15:10:08,823 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: (all:DeepSeek OR all:"DeepSeek LLM") AND (all:OpenAI OR all:"GPT models") AND (all:Google OR all:"Google AI") AND (all:comparison OR all:evaluation OR all:benchmark)
+2025-02-15 15:10:08,823 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28%28all%3ADeepSeek+OR+all%3A%22DeepSeek+LLM%22%29+AND+%28all%3AOpenAI+OR+all%3A%22GPT+models%22%29+AND+%28all%3AGoogle+OR+all%3A%22Google+AI%22%29+AND+%28all%3Acomparison+OR+all%3Aevaluation+OR+all%3Abenchmark%29%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-15 15:10:09,527 - arxiv - INFO - Got empty first page; stopping generation
+2025-02-15 15:10:09,528 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q2
+2025-02-15 15:10:12,528 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: all:DeepSeek AND (all:OpenAI OR all:Google) AND (all:transformer OR all:architecture OR all:"neural network")
+2025-02-15 15:10:12,528 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28all%3ADeepSeek+AND+%28all%3AOpenAI+OR+all%3AGoogle%29+AND+%28all%3Atransformer+OR+all%3Aarchitecture+OR+all%3A%22neural+network%22%29%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-15 15:10:13,269 - arxiv - INFO - Got first page: 4 of 4 total results
+2025-02-15 15:10:13,270 - src.agents.arxiv_searcher - INFO - Found 4 articles for query q3
+2025-02-15 15:10:16,270 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: (ti:DeepSeek OR abs:DeepSeek) AND (ti:OpenAI OR abs:OpenAI) AND (ti:Google OR abs:Google) AND (all:performance OR all:efficiency OR all:scalability)
+2025-02-15 15:10:16,271 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28%28ti%3ADeepSeek+OR+abs%3ADeepSeek%29+AND+%28ti%3AOpenAI+OR+abs%3AOpenAI%29+AND+%28ti%3AGoogle+OR+abs%3AGoogle%29+AND+%28all%3Aperformance+OR+all%3Aefficiency+OR+all%3Ascalability%29%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-15 15:10:16,971 - arxiv - INFO - Got empty first page; stopping generation
+2025-02-15 15:10:16,971 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q4
+2025-02-15 15:10:19,971 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: all:DeepSeek AND (all:OpenAI OR all:Google) AND (all:training OR all:"fine-tuning" OR all:optimization) AND (all:"large language model" OR all:LLM)
+2025-02-15 15:10:19,972 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28all%3ADeepSeek+AND+%28all%3AOpenAI+OR+all%3AGoogle%29+AND+%28all%3Atraining+OR+all%3A%22fine-tuning%22+OR+all%3Aoptimization%29+AND+%28all%3A%22large+language+model%22+OR+all%3ALLM%29%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-15 15:10:20,768 - arxiv - INFO - Got first page: 10 of 10 total results
+2025-02-15 15:10:20,769 - src.agents.arxiv_searcher - INFO - Found 5 articles for query q5
+2025-02-15 15:10:23,785 - src.agents.arxiv_searcher - INFO - Saved 14 articles to /home/jlopes/Dropbox/IA/Agentes/rxivonauta/data/processed/raw_articles_20250215_151023.csv
+2025-02-15 15:10:23,785 - __main__ - INFO - Analyzing articles...
+2025-02-15 15:10:23,785 - src.agents.content_analyzer - INFO - Starting analysis of 14 articles
+2025-02-15 15:10:23,786 - src.agents.content_analyzer - INFO - Analyzing 5 articles for query q1
+2025-02-15 15:10:23,786 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 15:10:23,787 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 15:10:23,787 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 15:10:23,787 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 2485
+2025-02-15 15:10:23,787 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 15:10:23,787 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 15:10:23,790 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 15:10:23,790 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 15:10:23,790 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 3442
+2025-02-15 15:10:23,790 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 15:10:23,790 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 2930
+2025-02-15 15:10:23,790 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 15:10:23,792 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 15:10:23,795 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 3282
+2025-02-15 15:10:23,795 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 2674
+2025-02-15 15:10:23,887 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 15:10:23,894 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 15:10:23,897 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 15:10:23,912 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 15:10:23,930 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 15:10:26,937 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 15:10:26,994 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 15:10:27,050 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 15:10:27,455 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 15:10:27,611 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 15:10:27,612 - src.agents.content_analyzer - INFO - Analyzing 4 articles for query q3
+2025-02-15 15:10:27,613 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 15:10:27,613 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 15:10:27,614 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 15:10:27,614 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 15:10:27,614 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 15:10:27,614 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 15:10:27,614 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 15:10:27,614 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 3498
+2025-02-15 15:10:27,615 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 3383
+2025-02-15 15:10:27,615 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 15:10:27,615 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 2864
+2025-02-15 15:10:27,620 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 2852
+2025-02-15 15:10:27,692 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 15:10:27,698 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 15:10:27,699 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 15:10:27,712 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 15:10:30,668 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 15:10:30,937 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 15:10:30,970 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 15:10:31,388 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 15:10:31,390 - src.agents.content_analyzer - INFO - Analyzing 5 articles for query q5
+2025-02-15 15:10:31,390 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 15:10:31,391 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 15:10:31,391 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 15:10:31,391 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 15:10:31,391 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 15:10:31,392 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 15:10:31,392 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 15:10:31,392 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 15:10:31,392 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 3527
+2025-02-15 15:10:31,392 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 15:10:31,392 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 3015
+2025-02-15 15:10:31,392 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 15:10:31,392 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 3367
+2025-02-15 15:10:31,394 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 3084
+2025-02-15 15:10:31,397 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 2881
+2025-02-15 15:10:31,462 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 15:10:31,467 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 15:10:31,474 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 15:10:31,477 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 15:10:31,497 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 15:10:34,686 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 15:10:34,703 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 15:10:34,721 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 15:10:34,925 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 15:10:34,973 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 15:10:34,989 - src.agents.content_analyzer - INFO - Analysis completed. Selected 5 articles
+2025-02-15 15:10:34,996 - src.utils.data_processor - WARNING - Null values found: journal_ref    5
+doi            5
+dtype: int64
+2025-02-15 15:10:34,997 - src.agents.content_analyzer - INFO - Results saved to /home/jlopes/Dropbox/IA/Agentes/rxivonauta/data/processed/processed_articles_20250215_151034.csv
+2025-02-15 15:10:34,997 - src.utils.data_processor - INFO - Processing stats saved to /home/jlopes/Dropbox/IA/Agentes/rxivonauta/data/processed/processing_stats.json
+2025-02-15 15:10:34,997 - __main__ - INFO - Generating literature review...
+2025-02-15 15:10:34,999 - src.agents.content_reviewer - INFO - Generating review for 5 articles
+2025-02-15 15:10:34,999 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 15:10:34,999 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 15:10:34,999 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 14070
+2025-02-15 15:10:35,107 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 15:10:53,745 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 15:10:53,745 - src.agents.content_reviewer - WARNING - Missing section: ## Introduction
+2025-02-15 15:10:53,745 - src.agents.content_reviewer - WARNING - Missing section: ## Theoretical Framework
+2025-02-15 15:10:53,745 - src.agents.content_reviewer - WARNING - Missing section: ## Methodology Analysis
+2025-02-15 15:10:53,745 - src.agents.content_reviewer - WARNING - Missing section: ## Results Synthesis
+2025-02-15 15:10:53,745 - src.agents.content_reviewer - WARNING - Missing section: ## Future Directions
+2025-02-15 15:10:53,746 - src.agents.content_reviewer - WARNING - Missing section: ## Conclusion
+2025-02-15 15:10:53,746 - src.agents.content_reviewer - INFO - Review saved to /home/jlopes/Dropbox/IA/Agentes/rxivonauta/data/processed/literature_review_20250215_151053.md
+2025-02-15 15:10:53,746 - __main__ - INFO - Pipeline completed in 60.01 seconds

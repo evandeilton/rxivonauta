@@ -1197,3 +1197,132 @@ dtype: int64
 2025-02-15 15:55:30,737 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28%28all%3A%22Gamma+regression%22+OR+all%3A%22Gamma+model%22%29+AND+%28all%3A%22Weibull+regression%22+OR+all%3A%22Weibull+model%22%29+AND+all%3A%22variable+selection%22%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
 2025-02-15 15:55:31,452 - arxiv - INFO - Got empty first page; stopping generation
 2025-02-15 15:55:31,452 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q4
+2025-02-15 16:15:42,652 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-15 16:15:42,673 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-15 16:15:42,673 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-15 16:15:42,678 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-15 16:15:42,678 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-15 16:15:42,683 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-15 16:15:42,683 - __main__ - INFO - Pipeline initialized successfully
+2025-02-15 16:15:42,683 - __main__ - INFO - Starting pipeline for topic: Gamma regression
+2025-02-15 16:15:42,686 - __main__ - INFO - Generating search queries...
+2025-02-15 16:15:42,686 - src.agents.query_generator - INFO - Generating 5 queries for topic: Gamma regression
+2025-02-15 16:15:42,686 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 16:15:42,686 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 16:15:42,686 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 731
+2025-02-15 16:15:43,100 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 16:15:44,880 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 16:15:44,880 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 16:15:44,880 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 16:15:44,880 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 2257
+2025-02-15 16:15:44,966 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 16:15:51,851 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 16:15:51,851 - src.agents.query_generator - INFO - Successfully generated 5 queries
+2025-02-15 16:15:51,854 - __main__ - INFO - Searching Arxiv...
+2025-02-15 16:15:51,854 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: ti:"Gamma regression" OR abs:"Gamma regression"
+2025-02-15 16:15:51,854 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28ti%3A%22Gamma+regression%22+OR+abs%3A%22Gamma+regression%22%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-15 16:15:52,621 - arxiv - INFO - Got first page: 11 of 11 total results
+2025-02-15 16:15:52,622 - src.agents.arxiv_searcher - INFO - Found 5 articles for query q1
+2025-02-15 16:15:55,622 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: all:"Gamma regression" AND (all:GLM OR all:"Generalized Linear Model")
+2025-02-15 16:15:55,622 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28all%3A%22Gamma+regression%22+AND+%28all%3AGLM+OR+all%3A%22Generalized+Linear+Model%22%29%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-15 16:15:56,390 - arxiv - INFO - Got first page: 2 of 2 total results
+2025-02-15 16:15:56,390 - src.agents.arxiv_searcher - INFO - Found 2 articles for query q2
+2025-02-15 16:15:59,390 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: all:"Gamma regression" AND (all:dispersion OR all:heteroscedasticity OR all:overdispersion)
+2025-02-15 16:15:59,391 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28all%3A%22Gamma+regression%22+AND+%28all%3Adispersion+OR+all%3Aheteroscedasticity+OR+all%3Aoverdispersion%29%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-15 16:16:00,084 - arxiv - INFO - Got empty first page; stopping generation
+2025-02-15 16:16:00,085 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q3
+2025-02-15 16:16:03,085 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: all:"Gamma regression" AND (all:likelihood OR all:"maximum likelihood" OR all:estimation)
+2025-02-15 16:16:03,085 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28all%3A%22Gamma+regression%22+AND+%28all%3Alikelihood+OR+all%3A%22maximum+likelihood%22+OR+all%3Aestimation%29%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-15 16:16:03,802 - arxiv - INFO - Got first page: 7 of 7 total results
+2025-02-15 16:16:03,803 - src.agents.arxiv_searcher - INFO - Found 5 articles for query q4
+2025-02-15 16:16:06,803 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: all:"Gamma regression" AND (all:residuals OR all:diagnostics OR all:"model checking")
+2025-02-15 16:16:06,803 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28all%3A%22Gamma+regression%22+AND+%28all%3Aresiduals+OR+all%3Adiagnostics+OR+all%3A%22model+checking%22%29%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-15 16:16:07,514 - arxiv - INFO - Got empty first page; stopping generation
+2025-02-15 16:16:07,514 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q5
+2025-02-15 16:16:10,527 - src.agents.arxiv_searcher - INFO - Saved 12 articles to /home/jlopes/Dropbox/IA/Agentes/rxivonauta/data/processed/raw_articles_20250215_161610.csv
+2025-02-15 16:16:10,528 - __main__ - INFO - Analyzing articles...
+2025-02-15 16:16:10,528 - src.agents.content_analyzer - INFO - Starting analysis of 12 articles
+2025-02-15 16:16:10,528 - src.agents.content_analyzer - INFO - Analyzing 5 articles for query q1
+2025-02-15 16:16:10,529 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 16:16:10,530 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 16:16:10,530 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 16:16:10,530 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 3033
+2025-02-15 16:16:10,531 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 16:16:10,531 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 16:16:10,531 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 16:16:10,531 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 16:16:10,534 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 16:16:10,534 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 16:16:10,534 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 3525
+2025-02-15 16:16:10,534 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 16:16:10,534 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 2176
+2025-02-15 16:16:10,534 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 2423
+2025-02-15 16:16:10,536 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 2472
+2025-02-15 16:16:10,639 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 16:16:10,647 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 16:16:10,655 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 16:16:10,667 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 16:16:10,676 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 16:16:13,575 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 16:16:13,670 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 16:16:13,799 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 16:16:13,904 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 16:16:13,957 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 16:16:13,958 - src.agents.content_analyzer - INFO - Analyzing 2 articles for query q2
+2025-02-15 16:16:13,959 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 16:16:13,960 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 16:16:13,960 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 16:16:13,960 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 16:16:13,960 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 2495
+2025-02-15 16:16:13,960 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 2631
+2025-02-15 16:16:14,034 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 16:16:14,039 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 16:16:16,862 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 16:16:17,221 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 16:16:17,222 - src.agents.content_analyzer - INFO - Analyzing 5 articles for query q4
+2025-02-15 16:16:17,223 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 16:16:17,223 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 16:16:17,224 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 16:16:17,224 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 16:16:17,225 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 16:16:17,225 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 16:16:17,225 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 16:16:17,225 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 16:16:17,225 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 16:16:17,225 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 3075
+2025-02-15 16:16:17,225 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 16:16:17,225 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 2218
+2025-02-15 16:16:17,225 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 2465
+2025-02-15 16:16:17,225 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 2513
+2025-02-15 16:16:17,227 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 3547
+2025-02-15 16:16:17,302 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 16:16:17,303 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 16:16:17,308 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 16:16:17,318 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 16:16:17,331 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 16:16:19,538 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 16:16:19,693 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 16:16:20,282 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 16:16:20,424 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 16:16:20,485 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 16:16:20,499 - src.agents.content_analyzer - INFO - Analysis completed. Selected 5 articles
+2025-02-15 16:16:20,504 - src.utils.data_processor - WARNING - Null values found: journal_ref    5
+doi            5
+dtype: int64
+2025-02-15 16:16:20,506 - src.agents.content_analyzer - INFO - Results saved to /home/jlopes/Dropbox/IA/Agentes/rxivonauta/data/processed/processed_articles_20250215_161620.csv
+2025-02-15 16:16:20,507 - src.utils.data_processor - INFO - Processing stats saved to /home/jlopes/Dropbox/IA/Agentes/rxivonauta/data/processed/processing_stats.json
+2025-02-15 16:16:20,507 - __main__ - INFO - Generating literature review...
+2025-02-15 16:16:20,510 - src.agents.content_reviewer - INFO - Generating review for 5 articles
+2025-02-15 16:16:20,511 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 16:16:20,511 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 16:16:20,511 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 12179
+2025-02-15 16:16:20,630 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 16:16:42,216 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 16:16:42,217 - src.agents.content_reviewer - WARNING - Missing section: ## Introduction
+2025-02-15 16:16:42,217 - src.agents.content_reviewer - WARNING - Missing section: ## Theoretical Framework
+2025-02-15 16:16:42,217 - src.agents.content_reviewer - WARNING - Missing section: ## Methodology Analysis
+2025-02-15 16:16:42,217 - src.agents.content_reviewer - WARNING - Missing section: ## Results Synthesis
+2025-02-15 16:16:42,217 - src.agents.content_reviewer - WARNING - Missing section: ## Future Directions
+2025-02-15 16:16:42,217 - src.agents.content_reviewer - WARNING - Missing section: ## Conclusion
+2025-02-15 16:16:42,217 - src.agents.content_reviewer - INFO - Review saved to /home/jlopes/Dropbox/IA/Agentes/rxivonauta/data/processed/literature_review_20250215_161642.md
+2025-02-15 16:16:42,218 - __main__ - INFO - Pipeline completed in 59.53 seconds

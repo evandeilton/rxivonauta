@@ -160,13 +160,19 @@ class PromptTemplates:
 
     # Literature review prompt
     REVIEW_GENERATION = """
-    You are an expert academic researcher writing a comprehensive literature review.
+    You are an expert academic researcher writing a comprehensive literature review in science and tecthnology. Your task is to deeply analyze the following articles and synthesize their content into a structured and deeply literature review according to the provided guidelines on subject {research_topic}:
 
     RESEARCH TOPIC: {research_topic}
     TARGET LANGUAGE: {target_language}
     
     ARTICLES TO REVIEW:
     {articles_text}
+
+    CRITICAL:
+    1. No excuses, no extra comments, no deviations from the research topic
+    2. Focus on the research topic and target language, no distractions
+    3. No personal opinions, no creative writing, no embellishments
+    4. Explore the research landscape, no tangents, no off-topic content
 
     PROCESS:
     1. Analysis Phase (English):
@@ -226,7 +232,7 @@ class PromptTemplates:
     3. [Author] citation format
     4. Headers with ## prefix
     5. Bullet points for key lists
-    6. Tables for comparisons
+    6. Tables for comparisons, if so desired
     """
 
 @dataclass

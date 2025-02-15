@@ -61,8 +61,8 @@ class OpenRouterConfig:
     """Configurações da API do OpenRouter."""
     API_KEY = validate_api_key()
     BASE_URL = 'https://openrouter.ai/api/v1'
-    DEFAULT_MODEL = 'google/gemini-2.0-pro-exp-02-05:free' #google/gemini-2.0-flash-001
-    MODEL = os.getenv('OPENROUTER_MODEL', DEFAULT_MODEL)
+    DEFAULT_MODEL = os.getenv('OPENROUTER_MODEL', 'perplexity/llama-3.1-sonar-small-128k-chat') #google/gemini-2.0-flash-001
+    MODEL = DEFAULT_MODEL
     SITE_URL = 'https://github.com/evandeilton/rxivonauta'
     SITE_NAME = 'rxivonauta'
     
@@ -78,7 +78,7 @@ class SystemConfig:
     MAX_SELECTED_PER_QUERY = 2   # número de artigos selecionados por query
     CHUNK_SIZE = 1000            # tamanho do chunk para processamento de dados
     CACHE_ENABLED = True         # habilita cache de requisições
-    CACHE_TTL = 3600            # tempo de vida do cache em segundos
+    CACHE_TTL = 3600             # tempo de vida do cache em segundos
 
 # Configurações do Arxiv
 class ArxivConfig:
@@ -86,7 +86,7 @@ class ArxivConfig:
     MAX_RESULTS = 5     # número de artigos por query
     RATE_LIMIT = 3      # segundos entre requisições
     SORT_BY = 'SubmittedDate'     # critério de ordenação
-    SORT_ORDER = 'descending'    # ordem de classificação
+    SORT_ORDER = 'descending'     # ordem de classificação
     MAX_AGE_DAYS = None  # idade máxima dos artigos em dias (None = sem limite)
     
     # Categorias padrão para busca

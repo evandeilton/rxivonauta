@@ -98,7 +98,9 @@ class RxivonautaPipeline:
         self,
         research_topic: str,
         output_lang: str,
-        output_dir: Optional[Path] = None
+        output_dir: Optional[Path] = None,
+        model: Optional[str] = None,
+        args: argparse.Namespace = None
     ) -> PipelineResult:
         """
         Executa o pipeline completo.
@@ -129,10 +131,14 @@ class RxivonautaPipeline:
             self.logger.info(f"Starting pipeline for topic: {research_topic}")
             start_time = datetime.now()
             
+            # 1. Set the model
+            if args and args.model:
+                settings.OpenRouterConfig.MODEL = args.model
+            
             # Criar progress bar
             pbar = tqdm(total=6, desc="Pipeline Progress")
 
-            # 1. Gerar queries
+            # 2. Gerar queries
             self.logger.info("Generating search queries...")
             query_data = self.query_generator.generate_queries(research_topic)
             queries_df = self.data_processor.prepare_queries_data(query_data)
@@ -246,7 +252,45 @@ async def main():
         help='Diretório para saída',
         default=None
     )
-    
+
+    parser.add_argument(
+        '--model',
+        type=str,
+        help='Modelo a ser utilizado',
+        choices=[
+            "google/gemini-2.0-pro-exp-02-05:free",
+            "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+            "cognitivecomputations/dolphin3.0-mistral-24b:free",
+            "openai/o3-mini-high",
+            "openai/o3-mini",
+            "openai/chatgpt-4o-latest",
+            "openai/gpt-4o-mini",
+            "google/gemini-2.0-flash-001",
+            "google/gemini-2.0-flash-thinking-exp:free",
+            "google/gemini-2.0-flash-lite-preview-02-05:free",
+            "deepseek/deepseek-r1-distill-llama-70b:free",
+            "deepseek/deepseek-r1-distill-qwen-32b",
+            "deepseek/deepseek-r1:free",
+            "qwen/qwen-plus",
+            "qwen/qwen-max",
+            "qwen/qwen-turbo",
+            "qwen/qwen2.5-vl-72b-instruct:free",
+            "mistralai/codestral-2501",
+            "mistralai/mistral-7b-instruct:free",
+            "mistralai/mistral-small-24b-instruct-2501:free",
+            "anthropic/claude-3.5-haiku-20241022:beta",
+            "anthropic/claude-3.5-sonnet",
+            "perplexity/sonar-reasoning",
+            "perplexity/sonar",
+            "perplexity/llama-3.1-sonar-large-128k-online",
+            "perplexity/llama-3.1-sonar-small-128k-chat",
+            "nvidia/llama-3.1-nemotron-70b-instruct:free",
+            "microsoft/phi-3-medium-128k-instruct:free",
+            "meta-llama/llama-3.3-70b-instruct:free"
+        ],
+        default=None
+    )
+
     parser.add_argument(
         '--output-lang',
         type=str,
@@ -267,7 +311,9 @@ async def main():
         result = await pipeline.run(
             research_topic=args.topic,
             output_lang=args.output_lang,
-            output_dir=args.output_dir
+            output_dir=args.output_dir,
+            model=args.model,
+            args=args
         )
         
         # Imprimir resumo

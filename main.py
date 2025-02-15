@@ -22,6 +22,7 @@ from tqdm import tqdm
 try:
     from config import settings
     from config.settings import Directories, LanguageConfig, LogConfig
+    from config.settings import OpenRouterConfig, ArxivConfig, SystemConfig
     from src.agents.query_generator import QueryGenerator
     from src.agents.arxiv_searcher import ArxivSearcher
     from src.agents.content_analyzer import ContentAnalyzer
@@ -99,8 +100,8 @@ class RxivonautaPipeline:
         research_topic: str,
         output_lang: str,
         output_dir: Optional[Path] = None,
-        model: Optional[str] = None,
-        args: argparse.Namespace = None
+        temperature: float = 0.7,
+        min_score_threshold: float = 0.6
     ) -> PipelineResult:
         """
         Executa o pipeline completo.
@@ -109,6 +110,8 @@ class RxivonautaPipeline:
             research_topic: Tema de pesquisa
             output_lang: Idioma de saída
             output_dir: Diretório opcional para saída
+            temperature: Temperatura para geração de texto LLM
+            min_score_threshold: Pontuação mínima de relevância para seleção de artigos
 
         Returns:
             PipelineResult com resultados e estatísticas
@@ -233,24 +236,26 @@ def print_summary(result: PipelineResult):
     print(f"  - Revisão: {result.literature_review_file}")
     print("=" * 50)
 
-async def main():
-    """Função principal do script."""
+def setup_argparse():
+    """Configure command line argument parser with comprehensive defaults."""
     parser = argparse.ArgumentParser(
-        description='Rxivonauta - Pesquisador Acadêmico Automatizado',
+        description='Rxivonauta - Automated Academic Researcher',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
     
+    # Required arguments
     parser.add_argument(
         'topic',
         type=str,
-        help='Tema de pesquisa'
+        help='Research topic'
     )
     
+    # Optional arguments with defaults
     parser.add_argument(
         '--output-dir',
         type=Path,
-        help='Diretório para saída',
-        default=None
+        default=Directories.PROCESSED_DATA_DIR,
+        help='Output directory'
     )
 
     parser.add_argument(
@@ -294,38 +299,239 @@ async def main():
     parser.add_argument(
         '--output-lang',
         type=str,
-        help='Idioma de saída',
         choices=list(LanguageConfig.SUPPORTED_LANGUAGES.keys()),
-        default=LanguageConfig.DEFAULT_LANGUAGE
+        default=LanguageConfig.DEFAULT_LANGUAGE,
+        help='Output language for the review'
     )
     
+    # Model selection with default
+    parser.add_argument(
+        '--model',
+        type=str,
+        choices=[
+            "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+            "cognitivecomputations/dolphin3.0-mistral-24b:free",
+            "openai/o3-mini-high",
+            "openai/o3-mini",
+            "openai/chatgpt-4o-latest",
+            "openai/gpt-4o-mini",
+            "google/gemini-2.0-flash-001",
+            "google/gemini-2.0-flash-thinking-exp:free",
+            "google/gemini-2.0-flash-lite-preview-02-05:free",
+            "google/gemini-2.0-pro-exp-02-05:free",
+            "deepseek/deepseek-r1-distill-llama-70b:free",
+            "deepseek/deepseek-r1-distill-qwen-32b",
+            "deepseek/deepseek-r1:free",
+            "qwen/qwen-plus",
+            "qwen/qwen-max",
+            "qwen/qwen-turbo",
+            "qwen/qwen2.5-vl-72b-instruct:free",
+            "mistralai/codestral-2501",
+            "mistralai/mistral-7b-instruct:free",
+            "mistralai/mistral-small-24b-instruct-2501:free",
+            "anthropic/claude-3.5-haiku-20241022:beta",
+            "anthropic/claude-3.5-sonnet",
+            "perplexity/sonar-reasoning",
+            "perplexity/sonar",
+            "perplexity/llama-3.1-sonar-large-128k-online",
+            "perplexity/llama-3.1-sonar-small-128k-chat",
+            "nvidia/llama-3.1-nemotron-70b-instruct:free",
+            "microsoft/phi-3-medium-128k-instruct:free",
+            "meta-llama/llama-3.3-70b-instruct:free"
+        ],
+        default="google/gemini-2.0-pro-exp-02-05:free",
+        help='LLM model to use for text generation'
+    )
+    
+    # Search configuration with defaults
+    parser.add_argument(
+        '--max-queries',
+        type=int,
+        default=SystemConfig.MAX_QUERIES,
+        help='Maximum number of search queries to generate (default: 5)'
+    )
+    
+    parser.add_argument(
+        '--max-results-per-query',
+        type=int,
+        default=ArxivConfig.MAX_RESULTS,
+        help='Maximum number of results per query (default: 5)'
+    )
+    
+    parser.add_argument(
+        '--max-age-days',
+        type=int,
+        default=365,  # Set default to 1 year
+        help='Maximum age of articles in days (default: 365, use 0 for no limit)'
+    )
+    
+    parser.add_argument(
+        '--categories',
+        type=str,
+        nargs='+',
+        default=ArxivConfig.CATEGORIES,
+        help='Arxiv categories to search in (default: cs.AI cs.CL cs.LG stat.ML)'
+    )
+    
+    # Analysis configuration with defaults
+    parser.add_argument(
+        '--min-score',
+        type=float,
+        default=0.6,
+        help='Minimum relevance score for article selection (0-1)'
+    )
+    
+    parser.add_argument(
+        '--max-selected',
+        type=int,
+        default=SystemConfig.MAX_SELECTED_PER_QUERY,
+        help='Maximum number of selected articles per query (default: 2)'
+    )
+    
+    # Advanced options with defaults
+    parser.add_argument(
+        '--temperature',
+        type=float,
+        default=0.7,
+        help='Temperature for LLM text generation (0-1)'
+    )
+    
+    parser.add_argument(
+        '--batch-size',
+        type=int,
+        default=SystemConfig.CHUNK_SIZE,
+        help='Batch size for processing articles (default: 1000)'
+    )
+    
+    parser.add_argument(
+        '--debug',
+        action='store_true',
+        default=False,
+        help='Enable debug logging'
+    )
+
+    parser.add_argument(
+        '--retry-attempts',
+        type=int,
+        default=OpenRouterConfig.MAX_RETRIES,
+        help='Number of retry attempts for API calls (default: 3)'
+    )
+
+    parser.add_argument(
+        '--retry-delay',
+        type=int,
+        default=OpenRouterConfig.RETRY_DELAY,
+        help='Delay between retry attempts in seconds (default: 5)'
+    )
+
+    parser.add_argument(
+        '--timeout',
+        type=int,
+        default=OpenRouterConfig.TIMEOUT,
+        help='API call timeout in seconds (default: 30)'
+    )
+    
+    parser.add_argument(
+        '--rate-limit',
+        type=float,
+        default=ArxivConfig.RATE_LIMIT,
+        help='Rate limit for Arxiv API requests in seconds (default: 3)'
+    )
+    
+    return parser
+
+def validate_args(args):
+    """Validate command line arguments."""
+    # Validate numerical ranges
+    if not 0 <= args.temperature <= 1:
+        raise ValueError("Temperature must be between 0 and 1")
+    if not 0 <= args.min_score <= 1:
+        raise ValueError("Min score must be between 0 and 1")
+    if args.max_queries < 1:
+        raise ValueError("Max queries must be at least 1")
+    if args.max_results_per_query < 1:
+        raise ValueError("Max results per query must be at least 1")
+    if args.max_age_days < 0:
+        raise ValueError("Max age days cannot be negative")
+    
+    # Validate categories
+    valid_categories = set(ArxivConfig.CATEGORIES)
+    invalid_cats = [cat for cat in args.categories if cat not in valid_categories]
+    if invalid_cats:
+        raise ValueError(f"Invalid Arxiv categories: {invalid_cats}")
+
+async def main():
+    """Main function with enhanced argument handling."""
+    parser = setup_argparse()
     args = parser.parse_args()
     
-    # Configurar logging
-    setup_logging()
-    logger = logging.getLogger(__name__)
-    
     try:
-        # Executar pipeline
+        # Validate arguments
+        validate_args(args)
+        
+        # Update logging level if debug is enabled
+        if args.debug:
+            logging.getLogger().setLevel(logging.DEBUG)
+        
+        # Setup logging
+        setup_logging()
+        logger = logging.getLogger(__name__)
+        
+        # Update configurations based on arguments
+        config_updates = {
+            'max_queries': args.max_queries,
+            'max_selected': args.max_selected,
+            'batch_size': args.batch_size,
+            'temperature': args.temperature,
+            'model': args.model,
+            'max_retries': args.retry_attempts,
+            'retry_delay': args.retry_delay,
+            'timeout': args.timeout
+        }
+        
+        # Initialize pipeline with updated configurations
         pipeline = RxivonautaPipeline()
+        pipeline.query_generator = QueryGenerator(
+            api_key=OpenRouterConfig.API_KEY,
+            temperature=args.temperature
+        )
+        pipeline.arxiv_searcher = ArxivSearcher(
+            max_results=args.max_results_per_query,
+            rate_limit=args.rate_limit,
+            max_age_days=args.max_age_days
+        )
+        pipeline.content_analyzer = ContentAnalyzer(
+            min_score_threshold=args.min_score,
+            batch_size=args.batch_size
+        )
+        pipeline.content_reviewer = ContentReviewer(
+            api_key=OpenRouterConfig.API_KEY,
+            temperature=args.temperature
+        )
+        
+        # Execute pipeline
         result = await pipeline.run(
             research_topic=args.topic,
             output_lang=args.output_lang,
-            output_dir=args.output_dir,
-            model=args.model,
-            args=args
+            output_dir=args.output_dir
         )
         
-        # Imprimir resumo
+        # Print summary
         print_summary(result)
+        
+    except ValueError as e:
+        logger.error(f"Configuration error: {str(e)}")
+        print(f"\nConfiguration error: {str(e)}")
+        sys.exit(1)
         
     except KeyboardInterrupt:
         logger.info("Execution interrupted by user")
-        print("\nExecução interrompida pelo usuário")
+        print("\nExecution interrupted by user")
+        sys.exit(0)
         
     except Exception as e:
         logger.error(f"Error in main execution: {str(e)}")
-        print(f"\nErro durante a execução: {str(e)}")
+        print(f"\nError during execution: {str(e)}")
         raise
 
 if __name__ == "__main__":

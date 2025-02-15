@@ -22,20 +22,20 @@ class QueryGenerator:
     Agente responsável por traduzir o tema de pesquisa e gerar queries otimizadas para o Arxiv.
     """
     
-    def __init__(self, api_key: str = settings.OpenRouterConfig.API_KEY):
+    def __init__(self, api_key: str = settings.OpenRouterConfig.API_KEY, temperature: float = 0.7):
         """
         Inicializa o gerador de queries.
         
         Args:
             api_key: Chave da API do OpenRouter
-            
-        Raises:
-            ValueError: Se a chave da API não for fornecida
+            temperature: Temperatura para geração de texto
         """
         if not api_key:
             raise ValueError("OpenRouter API key is required")
             
         self.client = OpenRouterClient(api_key)
+        self.temperature = min(max(temperature, 0), 1)  # Ensure between 0 and 1
+
         self._state = {
             'original_topic': None,
             'english_topic': None,

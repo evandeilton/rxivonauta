@@ -2,7 +2,7 @@
 
 Um sistema automatizado de pesquisa acadêmica que utiliza LLMs (Large Language Models) e a API do Arxiv para encontrar, analisar e selecionar artigos científicos relevantes.
 
-## Visão Geral
+## 🎯 Visão Geral
 
 O Rxivonauta é um pipeline de pesquisa acadêmica que:
 1. Gera queries otimizadas a partir de um tema de pesquisa
@@ -10,7 +10,7 @@ O Rxivonauta é um pipeline de pesquisa acadêmica que:
 3. Analisa e seleciona os artigos mais pertinentes
 4. Produz um relatório detalhado dos resultados
 
-### Características
+### ✨ Características
 
 - 🔍 Geração inteligente de queries usando LLMs
 - 🌐 Suporte multilíngue (você pergunta em qualquer idioma, buscamos em inglês)
@@ -19,7 +19,7 @@ O Rxivonauta é um pipeline de pesquisa acadêmica que:
 - ⚡ Processamento assíncrono
 - 🔄 Rate limiting e retry automático
 
-## Instalação
+## 🛠️ Instalação
 
 1. Clone o repositório:
 ```bash
@@ -46,133 +46,145 @@ cp .env.example .env
 # Edite o arquivo .env com suas configurações
 ```
 
-## Configuração
+## ⚙️ Configuração
 
 Edite o arquivo `.env` com suas configurações:
 
 ```env
 # OpenRouter API
 OPENROUTER_API_KEY=sua_chave_api_aqui
-OPENROUTER_MODEL=anthropic/claude-3-opus-20240229
+OPENROUTER_MODEL=google/gemini-2.0-pro-exp-02-05:free
 
 # Logging
 LOG_LEVEL=INFO
 ```
 
-## Uso
+## 🚀 Uso
 
-### Linha de Comando
+### Linha de Comando Básica
 
 ```bash
-python -m rxivonauta.src.main "seu tema de pesquisa"
+rxivonauta "seu tema de pesquisa"
 ```
+
+### Opções Avançadas
+
+```bash
+rxivonauta "seu tema de pesquisa" [opções]
 
 Opções disponíveis:
-- `--output-dir`: Diretório personalizado para saída
-```bash
-python -m rxivonauta.src.main "seu tema de pesquisa" --output-dir /caminho/personalizado
+  --output-dir PATH           Diretório de saída
+  --output-lang LANG         Idioma de saída (pt-BR, en-US, etc)
+  --model MODEL              Modelo LLM a ser usado
+  --max-queries N            Máximo de queries (default: 5)
+  --max-results-per-query N  Resultados por query (default: 5)
+  --max-age-days N          Idade máxima dos artigos (default: 365)
+  --categories [CAT ...]     Categorias Arxiv (default: cs.AI cs.CL)
+  --min-score FLOAT         Score mínimo (0-1, default: 0.6)
+  --temperature FLOAT       Temperatura LLM (0-1, default: 0.7)
+  --debug                   Ativa logs de debug
 ```
 
-### Exemplo de Saída
+### Exemplos de Uso
+
+1. Pesquisa básica:
+```bash
+rxivonauta "Machine Learning em Finanças"
+```
+
+2. Com configurações personalizadas:
+```bash
+rxivonauta "Redes Neurais Profundas" \
+  --output-lang pt-BR \
+  --model anthropic/claude-3.5-haiku \
+  --max-queries 10 \
+  --categories cs.AI cs.LG stat.ML \
+  --min-score 0.7
+```
+
+3. Com saída personalizada:
+```bash
+rxivonauta "Análise de Séries Temporais" \
+  --output-dir ./minha_pesquisa \
+  --debug
+```
+
+## 📊 Exemplo de Saída
 
 ```
 Rxivonauta - Resumo da Execução
 ==================================================
-Tema: GLM Regression Models
+Tema: Deep Learning for Time Series
 Idioma: 🇧🇷 Português (Brasil)
 Total de artigos encontrados: 25
-Artigos selecionados: 9
+Artigos selecionados: 8
 Queries geradas: 5
-Tempo de processamento: 77.82 segundos
+Tempo de processamento: 45.82 segundos
 Arquivos gerados:
-  - Raw: raw_articles_20250214_235425.csv
-  - Processado: processed_articles_20250214_235444.csv
-  - Revisão: literature_review_20250214_235513.md
+  - Raw: raw_articles_20240214_235425.csv
+  - Processado: processed_articles_20240214_235444.csv
+  - Revisão: literature_review_20240214_235513.md
 ==================================================
 ```
 
-## Estrutura do Projeto
+## 🔧 Modelos LLM Suportados
+
+### Modelos Gratuitos
+- `google/gemini-2.0-pro-exp-02-05:free` (default)
+- `mistralai/mistral-7b-instruct:free`
+- `microsoft/phi-3-medium-128k-instruct:free`
+
+### Modelos Premium
+- `anthropic/claude-3.5-sonnet`
+- `openai/gpt-4o-mini`
+- `perplexity/sonar-small-chat`
+
+## 🌱 Desenvolvimento
+
+### Estrutura do Projeto
 
 ```
 rxivonauta/
 ├── config/
 │   ├── settings.py          # Configurações
-│   └── prompts.py           # Templates LLM
+│   └── prompts.py          # Templates LLM
 ├── src/
-│   ├── agents/
-│   │   ├── query_generator.py   # Gerador de queries
-│   │   ├── arxiv_searcher.py    # Buscador Arxiv
-│   │   └── content_analyzer.py   # Analisador
-│   ├── utils/
-│   │   ├── api_client.py        # Cliente API
-│   │   └── data_processor.py    # Processador
-│   └── main.py                  # Script principal
-└── data/
-    ├── raw/                 # Dados brutos
-    └── processed/           # Resultados
+│   ├── agents/             # Agentes principais
+│   ├── utils/              # Utilitários
+│   └── main.py            # Script principal
+└── data/                  # Dados e resultados
 ```
 
-## Customização
+### Testes
 
-### Ajustando Parâmetros
+```bash
+# Instalar dependências de desenvolvimento
+pip install -e ".[dev]"
 
-Você pode modificar vários parâmetros no arquivo `config/settings.py`:
-- Número de queries geradas
-- Artigos por query
-- Categorias do Arxiv
-- Rate limits
-- etc.
+# Rodar testes
+pytest tests/
+```
 
-### Modificando Prompts
-
-Os templates de prompts para os LLMs podem ser ajustados em `config/prompts.py`.
-
-## Output
-
-O sistema gera dois tipos de arquivos:
-
-1. **Dados Brutos** (`data/raw/`):
-   - Todos os artigos encontrados
-   - Metadados completos
-   - Queries utilizadas
-
-2. **Dados Processados** (`data/processed/`):
-   - Artigos selecionados
-   - Scores de relevância
-   - Análises e justificativas
-   - Estatísticas do processamento
-
-## Contribuindo
+## 🤝 Contribuindo
 
 1. Fork o projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
+2. Crie sua branch (`git checkout -b feature/MinhaFeature`)
+3. Commit suas mudanças (`git commit -m 'Adiciona nova feature'`)
+4. Push para a branch (`git push origin feature/MinhaFeature`)
 5. Abra um Pull Request
 
-## Dependências Principais
-
-- Python 3.8+
-- aiohttp
-- arxiv
-- pandas
-- python-dotenv
-- tenacity
-
-## Log de Alterações
-
-### [0.1.0] - 2024-02-14
-- Lançamento inicial
-- Suporte multilíngue
-- Pipeline básico de pesquisa
-- Análise automática de relevância
-
-## Licença
+## 📝 Licença
 
 Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
-## Contato
+## 📫 Contato
 
 José Lopes - [evandeilton@gmail.com](mailto:evandeilton@gmail.com)
 
-Link do Projeto: [https://github.com/evandeilton/rxivonauta](https://github.com/evandeilton/rxivonauta)
+Projeto: [https://github.com/evandeilton/rxivonauta](https://github.com/evandeilton/rxivonauta)
+
+## 🙏 Agradecimentos
+
+- OpenRouter pela API
+- ArXiv pela API de pesquisa
+- Contribuidores open source

@@ -1159,3 +1159,37 @@ dtype: int64
 2025-02-15 15:02:26,652 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
 2025-02-15 15:02:26,653 - src.agents.content_reviewer - INFO - Review saved to /home/jlopes/Dropbox/IA/Agentes/rxivonauta/data/processed/literature_review_20250215_150226.md
 2025-02-15 15:02:26,653 - __main__ - INFO - Pipeline completed in 51.39 seconds
+2025-02-15 15:55:11,545 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-15 15:55:11,565 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-15 15:55:11,565 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-15 15:55:11,571 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-15 15:55:11,571 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-15 15:55:11,577 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-15 15:55:11,577 - __main__ - INFO - Pipeline initialized successfully
+2025-02-15 15:55:11,577 - __main__ - INFO - Starting pipeline for topic: Gamma and Weibull regression
+2025-02-15 15:55:11,580 - __main__ - INFO - Generating search queries...
+2025-02-15 15:55:11,580 - src.agents.query_generator - INFO - Generating 5 queries for topic: Gamma and Weibull regression
+2025-02-15 15:55:11,580 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 15:55:11,580 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 15:55:11,580 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 743
+2025-02-15 15:55:11,925 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 15:55:14,004 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 15:55:14,005 - src.utils.api_client - INFO - Starting text generation
+2025-02-15 15:55:14,005 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-15 15:55:14,005 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 2281
+2025-02-15 15:55:14,078 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 15:55:19,595 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-15 15:55:19,595 - src.agents.query_generator - INFO - Successfully generated 5 queries
+2025-02-15 15:55:19,597 - __main__ - INFO - Searching Arxiv...
+2025-02-15 15:55:19,597 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: all:"Gamma regression" AND all:"Weibull regression"
+2025-02-15 15:55:19,597 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28all%3A%22Gamma+regression%22+AND+all%3A%22Weibull+regression%22%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-15 15:55:20,317 - arxiv - INFO - Got empty first page; stopping generation
+2025-02-15 15:55:20,317 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q1
+2025-02-15 15:55:23,317 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: all:"Gamma regression" AND all:"Weibull distribution" AND all:comparison
+2025-02-15 15:55:23,317 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28all%3A%22Gamma+regression%22+AND+all%3A%22Weibull+distribution%22+AND+all%3Acomparison%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-15 15:55:24,017 - arxiv - INFO - Got empty first page; stopping generation
+2025-02-15 15:55:24,017 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q2
+2025-02-15 15:55:27,017 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: (all:"Gamma regression" OR all:"Gamma model") AND (all:"Weibull regression" OR all:"Weibull model") AND all:application
+2025-02-15 15:55:27,018 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28%28all%3A%22Gamma+regression%22+OR+all%3A%22Gamma+model%22%29+AND+%28all%3A%22Weibull+regression%22+OR+all%3A%22Weibull+model%22%29+AND+all%3Aapplication%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-15 15:55:27,736 - arxiv - INFO - Got empty first page; stopping generation
+2025-02-15 15:55:27,736 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q3

@@ -77,15 +77,18 @@ python -m rxivonauta.src.main "seu tema de pesquisa" --output-dir /caminho/perso
 
 ```
 Rxivonauta - Resumo da Execução
-========================================
-Tema: Deep Learning in Healthcare
-Total de artigos encontrados: 50
-Artigos selecionados: 10
+==================================================
+Tema: GLM Regression Models
+Idioma: 🇧🇷 Português (Brasil)
+Total de artigos encontrados: 25
+Artigos selecionados: 9
 Queries geradas: 5
-Tempo de processamento: 45.23 segundos
-Arquivo bruto: raw_articles_20240214_143022.csv
-Arquivo processado: processed_articles_20240214_143022.csv
-========================================
+Tempo de processamento: 77.82 segundos
+Arquivos gerados:
+  - Raw: raw_articles_20250214_235425.csv
+  - Processado: processed_articles_20250214_235444.csv
+  - Revisão: literature_review_20250214_235513.md
+==================================================
 ```
 
 ## Estrutura do Projeto
@@ -170,6 +173,6 @@ Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICEN
 
 ## Contato
 
-Seu Nome - [@seu_twitter](https://twitter.com/seu_twitter)
+José Lopes - [evandeilton@gmail.com](mailto:evandeilton@gmail.com)
 
-Link do Projeto: [https://github.com/seu-usuario/rxivonauta](https://github.com/seu-usuario/rxivonauta)
+Link do Projeto: [https://github.com/evandeilton/rxivonauta](https://github.com/evandeilton/rxivonauta)

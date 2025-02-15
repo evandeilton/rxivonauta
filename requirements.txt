@@ -1,0 +1,21 @@
+# Bibliotecas principais
+aiohttp>=3.8.5        # Cliente HTTP assíncrono
+arxiv>=1.4.8          # Cliente para API do Arxiv
+pandas>=2.1.0         # Processamento de dados
+numpy>=1.24.0         # Suporte numérico
+python-dotenv>=1.0.0  # Gerenciamento de variáveis de ambiente
+
+# Bibliotecas de suporte
+tenacity>=8.2.3       # Retry mechanism
+asyncio>=3.4.3        # Suporte assíncrono
+typing-extensions>=4.7.1  # Suporte a type hints
+
+# Bibliotecas para logging e monitoramento
+
+# Bibliotecas de desenvolvimento
+black>=23.7.0         # Formatação de código
+isort>=5.12.0         # Organização de imports
+flake8>=6.1.0         # Linting
+pytest>=7.4.0         # Testes
+pytest-asyncio>=0.21.1  # Suporte a testes assíncronos
+pytest-cov>=4.1.0     # Cobertura de testes

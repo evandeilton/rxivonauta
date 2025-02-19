@@ -14,21 +14,8 @@ class OpenRouterClient:
     """
     Cliente assíncrono para a API do OpenRouter usando o SDK da OpenAI.
     """
-    DEFAULT_MODEL = "google/gemini-2.0-flash-001"
-    MODELS = [
-        "google/gemini-2.0-flash-001",
-        "google/gemini-2.0-flash-thinking-exp:free",
-        "google/gemini-2.0-flash-lite-preview-02-05:free",
-        "google/gemini-2.0-pro-exp-02-05:free",
-        "mistralai/mistral-7b-instruct:free",
-        "mistralai/mistral-small-24b-instruct-2501:free",
-        "anthropic/claude-3.5-haiku-20241022:beta",
-        "openai/o3-mini",
-        "openai/o3-mini-high",
-        "perplexity/llama-3.1-sonar-small-128k-chat",
-        "microsoft/phi-3-medium-128k-instruct:free",
-        "meta-llama/llama-3.3-70b-instruct:free"
-    ]
+    DEFAULT_MODEL = settings.OpenRouterConfig.DEFAULT_MODEL
+    MODELS = settings.OpenRouterConfig.MODELS
 
     def __init__(
         self,
@@ -56,7 +43,7 @@ class OpenRouterClient:
         
         # If no model specified, use the one from settings or default
         self.model = model or settings.OpenRouterConfig.MODEL
-        if self.model not in self.MODELS:
+        if not settings.OpenRouterConfig.validate_model(self.model):
             self.model = self.DEFAULT_MODEL
             logger.warning(f"Model {model} not found in available models. Using default: {self.DEFAULT_MODEL}")
         

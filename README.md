@@ -109,6 +109,17 @@ rxivonauta "Análise de Séries Temporais" \
   --debug
 ```
 
+### Testando o Pacote
+
+Para testar o pacote, siga estas etapas:
+
+1. Certifique-se de que você tem Python 3.8 ou superior instalado em seu sistema.
+2. Instale as dependências necessárias executando `pip install -r requirements.txt` a partir do diretório raiz do repositório.
+3. Verifique se o arquivo `.env` está configurado corretamente com as variáveis de ambiente necessárias, especialmente a `OPENROUTER_API_KEY`.
+4. Execute o script principal com um tema de pesquisa de exemplo para testar todo o pipeline. Por exemplo, execute `python main.py "Artificial Intelligence" --output-lang en-US` a partir do diretório raiz.
+5. Verifique os arquivos de saída gerados no diretório `data/processed` para garantir que o pipeline foi executado corretamente.
+6. Revise os logs no arquivo `logs/rxivonauta.log` para verificar se há erros ou avisos durante a execução.
+
 ## 📊 Exemplo de Saída
 
 ```

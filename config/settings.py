@@ -71,6 +71,27 @@ class OpenRouterConfig:
     RETRY_DELAY = 5  # segundos
     TIMEOUT = 30     # segundos
 
+    # Lista de modelos disponíveis
+    MODELS = [
+        "google/gemini-2.0-flash-001",
+        "google/gemini-2.0-flash-thinking-exp:free",
+        "google/gemini-2.0-flash-lite-preview-02-05:free",
+        "google/gemini-2.0-pro-exp-02-05:free",
+        "mistralai/mistral-7b-instruct:free",
+        "mistralai/mistral-small-24b-instruct-2501:free",
+        "anthropic/claude-3.5-haiku-20241022:beta",
+        "openai/o3-mini",
+        "openai/o3-mini-high",
+        "perplexity/llama-3.1-sonar-small-128k-chat",
+        "microsoft/phi-3-medium-128k-instruct:free",
+        "meta-llama/llama-3.3-70b-instruct:free"
+    ]
+
+    @classmethod
+    def validate_model(cls, model: str) -> bool:
+        """Valida se o modelo fornecido está na lista de modelos disponíveis."""
+        return model in cls.MODELS
+
 # Configurações do sistema
 class SystemConfig:
     """Configurações gerais do sistema."""

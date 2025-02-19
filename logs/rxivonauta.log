@@ -1,0 +1,167 @@
+2025-02-18 22:46:49,814 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:46:49,866 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:46:49,866 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:46:49,871 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:46:49,871 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:46:49,876 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:46:49,876 - __main__ - INFO - Pipeline initialized successfully
+2025-02-18 22:46:49,876 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:46:49,881 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:46:49,882 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:46:49,887 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:46:49,887 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:46:49,892 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:46:49,893 - __main__ - INFO - Starting pipeline for topic: Artificial Intelligence
+2025-02-18 22:46:49,893 - __main__ - ERROR - Pipeline error: name 'args' is not defined
+2025-02-18 22:46:49,893 - __main__ - ERROR - Error in main execution: name 'args' is not defined
+2025-02-18 22:47:19,404 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:47:19,457 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:47:19,457 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:47:19,463 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:47:19,463 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:47:19,468 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:47:19,468 - __main__ - INFO - Pipeline initialized successfully
+2025-02-18 22:47:19,468 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:47:19,473 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:47:19,473 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:47:19,479 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:47:19,479 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:47:19,484 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:47:19,484 - __main__ - INFO - Starting pipeline for topic: Artificial Intelligence
+2025-02-18 22:47:19,489 - __main__ - INFO - Generating search queries...
+2025-02-18 22:47:19,489 - src.agents.query_generator - INFO - Generating 5 queries for topic: Artificial Intelligence
+2025-02-18 22:47:19,489 - src.utils.api_client - INFO - Starting text generation
+2025-02-18 22:47:19,489 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-18 22:47:19,489 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 738
+2025-02-18 22:47:19,634 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 22:47:21,685 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-18 22:47:21,685 - src.utils.api_client - INFO - Starting text generation
+2025-02-18 22:47:21,685 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-18 22:47:21,685 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 2271
+2025-02-18 22:47:21,812 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 22:47:30,677 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-18 22:47:30,677 - src.agents.query_generator - INFO - Successfully generated 5 queries
+2025-02-18 22:47:30,679 - __main__ - INFO - Searching Arxiv...
+2025-02-18 22:47:30,680 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: all:"artificial intelligence"
+2025-02-18 22:47:30,680 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28all%3A%22artificial+intelligence%22%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29+AND+submittedDate%3A%5BNOW-365DAYS+TO+NOW%5D&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-18 22:47:31,652 - arxiv - INFO - Got empty first page; stopping generation
+2025-02-18 22:47:31,652 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q1
+2025-02-18 22:47:34,653 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: ti:"artificial intelligence" OR abs:"artificial intelligence"
+2025-02-18 22:47:34,653 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28ti%3A%22artificial+intelligence%22+OR+abs%3A%22artificial+intelligence%22%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29+AND+submittedDate%3A%5BNOW-365DAYS+TO+NOW%5D&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-18 22:47:35,346 - arxiv - INFO - Got empty first page; stopping generation
+2025-02-18 22:47:35,346 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q2
+2025-02-18 22:47:38,347 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: (ti:"machine learning" OR ti:"deep learning") AND (abs:"neural networks" OR abs:"convolutional neural networks" OR abs:"recurrent neural networks")
+2025-02-18 22:47:38,347 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22machine+learning%22+OR+ti%3A%22deep+learning%22%29+AND+%28abs%3A%22neural+networks%22+OR+abs%3A%22convolutional+neural+networks%22+OR+abs%3A%22recurrent+neural+networks%22%29%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29+AND+submittedDate%3A%5BNOW-365DAYS+TO+NOW%5D&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-18 22:47:39,062 - arxiv - INFO - Got empty first page; stopping generation
+2025-02-18 22:47:39,063 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q3
+2025-02-18 22:47:42,063 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: all:"natural language processing" OR all:NLP
+2025-02-18 22:47:42,064 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28all%3A%22natural+language+processing%22+OR+all%3ANLP%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29+AND+submittedDate%3A%5BNOW-365DAYS+TO+NOW%5D&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-18 22:47:42,821 - arxiv - INFO - Got empty first page; stopping generation
+2025-02-18 22:47:42,822 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q4
+2025-02-18 22:47:45,822 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: all:"computer vision" AND (all:"image recognition" OR all:"object detection" OR all:"image segmentation")
+2025-02-18 22:47:45,822 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28all%3A%22computer+vision%22+AND+%28all%3A%22image+recognition%22+OR+all%3A%22object+detection%22+OR+all%3A%22image+segmentation%22%29%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29+AND+submittedDate%3A%5BNOW-365DAYS+TO+NOW%5D&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-18 22:47:46,517 - arxiv - INFO - Got empty first page; stopping generation
+2025-02-18 22:47:46,517 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q5
+2025-02-18 22:47:49,518 - src.utils.data_processor - ERROR - Error processing Arxiv results: Empty articles list
+2025-02-18 22:47:49,518 - __main__ - ERROR - Pipeline error: Empty articles list
+2025-02-18 22:47:49,518 - __main__ - ERROR - Configuration error: Empty articles list
+2025-02-18 22:48:29,700 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:48:29,748 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:48:29,748 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:48:29,753 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:48:29,753 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:48:29,759 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:48:29,759 - __main__ - INFO - Pipeline initialized successfully
+2025-02-18 22:48:29,759 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:48:29,764 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:48:29,764 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:48:29,769 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:48:29,769 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:48:29,774 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:48:29,774 - __main__ - INFO - Starting pipeline for topic: Artificial Intelligence
+2025-02-18 22:48:29,776 - __main__ - INFO - Generating search queries...
+2025-02-18 22:48:29,776 - src.agents.query_generator - INFO - Generating 5 queries for topic: Artificial Intelligence
+2025-02-18 22:48:29,776 - src.utils.api_client - INFO - Starting text generation
+2025-02-18 22:48:29,776 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-18 22:48:29,776 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 738
+2025-02-18 22:48:30,117 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 22:48:32,409 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-18 22:48:32,409 - src.utils.api_client - INFO - Starting text generation
+2025-02-18 22:48:32,409 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-18 22:48:32,409 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 2271
+2025-02-18 22:48:32,519 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 22:48:40,228 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-18 22:48:40,228 - src.agents.query_generator - INFO - Successfully generated 5 queries
+2025-02-18 22:48:40,230 - __main__ - INFO - Searching Arxiv...
+2025-02-18 22:48:40,230 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: all:"Artificial Intelligence" OR all:"Machine Learning" OR all:"Deep Learning"
+2025-02-18 22:48:40,231 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28all%3A%22Artificial+Intelligence%22+OR+all%3A%22Machine+Learning%22+OR+all%3A%22Deep+Learning%22%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29+AND+submittedDate%3A%5BNOW-365DAYS+TO+NOW%5D&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-18 22:48:40,968 - arxiv - INFO - Got empty first page; stopping generation
+2025-02-18 22:48:40,968 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q1
+2025-02-18 22:48:43,968 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: all:"Artificial Intelligence" AND (all:ethics OR all:bias OR all:fairness OR all:accountability OR all:transparency)
+2025-02-18 22:48:43,969 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28all%3A%22Artificial+Intelligence%22+AND+%28all%3Aethics+OR+all%3Abias+OR+all%3Afairness+OR+all%3Aaccountability+OR+all%3Atransparency%29%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29+AND+submittedDate%3A%5BNOW-365DAYS+TO+NOW%5D&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-18 22:48:45,547 - arxiv - INFO - Got empty first page; stopping generation
+2025-02-18 22:48:45,548 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q2
+2025-02-18 22:48:48,548 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: (ti:"Natural Language Processing" OR ti:NLP) AND (abs:transformer OR abs:BERT OR abs:GPT OR abs:"large language model")
+2025-02-18 22:48:48,549 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22Natural+Language+Processing%22+OR+ti%3ANLP%29+AND+%28abs%3Atransformer+OR+abs%3ABERT+OR+abs%3AGPT+OR+abs%3A%22large+language+model%22%29%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29+AND+submittedDate%3A%5BNOW-365DAYS+TO+NOW%5D&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-18 22:48:49,593 - arxiv - INFO - Got empty first page; stopping generation
+2025-02-18 22:48:49,593 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q3
+2025-02-18 22:48:52,593 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: all:"Artificial Intelligence" AND (all:robotics OR all:automation)
+2025-02-18 22:48:52,594 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28all%3A%22Artificial+Intelligence%22+AND+%28all%3Arobotics+OR+all%3Aautomation%29%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29+AND+submittedDate%3A%5BNOW-365DAYS+TO+NOW%5D&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-18 22:48:53,333 - arxiv - INFO - Got empty first page; stopping generation
+2025-02-18 22:48:53,333 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q4
+2025-02-18 22:48:56,333 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: all:"Computer Vision" AND (all:"object detection" OR all:"image segmentation" OR all:"image recognition") AND (all:"deep learning" OR all:"convolutional neural network")
+2025-02-18 22:48:56,334 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28all%3A%22Computer+Vision%22+AND+%28all%3A%22object+detection%22+OR+all%3A%22image+segmentation%22+OR+all%3A%22image+recognition%22%29+AND+%28all%3A%22deep+learning%22+OR+all%3A%22convolutional+neural+network%22%29%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29+AND+submittedDate%3A%5BNOW-365DAYS+TO+NOW%5D&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-18 22:48:57,035 - arxiv - INFO - Got empty first page; stopping generation
+2025-02-18 22:48:57,035 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q5
+2025-02-18 22:49:00,035 - src.utils.data_processor - ERROR - Error processing Arxiv results: Empty articles list
+2025-02-18 22:49:00,035 - __main__ - ERROR - Pipeline error: Empty articles list
+2025-02-18 22:49:00,035 - __main__ - ERROR - Configuration error: Empty articles list
+2025-02-18 22:50:23,444 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:50:23,497 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:50:23,497 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:50:23,502 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:50:23,503 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:50:23,508 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:50:23,508 - __main__ - INFO - Pipeline initialized successfully
+2025-02-18 22:50:23,508 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:50:23,513 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:50:23,513 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:50:23,518 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:50:23,518 - src.utils.api_client - INFO - Creating OpenAI client
+2025-02-18 22:50:23,524 - src.utils.api_client - INFO - OpenRouterClient initialized successfully
+2025-02-18 22:50:23,525 - __main__ - INFO - Starting pipeline for topic: deepseek
+2025-02-18 22:50:23,527 - __main__ - INFO - Generating search queries...
+2025-02-18 22:50:23,527 - src.agents.query_generator - INFO - Generating 5 queries for topic: deepseek
+2025-02-18 22:50:23,527 - src.utils.api_client - INFO - Starting text generation
+2025-02-18 22:50:23,527 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-18 22:50:23,527 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 723
+2025-02-18 22:50:23,696 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 22:50:25,807 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-18 22:50:25,807 - src.utils.api_client - INFO - Starting text generation
+2025-02-18 22:50:25,807 - src.utils.api_client - INFO - Attempt 1/12: Using model google/gemini-2.0-flash-001
+2025-02-18 22:50:25,807 - src.utils.api_client - INFO - Sending request - Model: google/gemini-2.0-flash-001, Prompt length: 2241
+2025-02-18 22:50:25,910 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-18 22:50:32,842 - src.utils.api_client - INFO - Successfully generated response with model google/gemini-2.0-flash-001
+2025-02-18 22:50:32,842 - src.agents.query_generator - INFO - Successfully generated 5 queries
+2025-02-18 22:50:32,844 - __main__ - INFO - Searching Arxiv...
+2025-02-18 22:50:32,844 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: all:DeepSeek
+2025-02-18 22:50:32,844 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28all%3ADeepSeek%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29+AND+submittedDate%3A%5BNOW-365DAYS+TO+NOW%5D&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-18 22:50:33,615 - arxiv - INFO - Got empty first page; stopping generation
+2025-02-18 22:50:33,616 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q1
+2025-02-18 22:50:36,616 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: ti:DeepSeek OR abs:DeepSeek
+2025-02-18 22:50:36,616 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28ti%3ADeepSeek+OR+abs%3ADeepSeek%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29+AND+submittedDate%3A%5BNOW-365DAYS+TO+NOW%5D&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-18 22:50:37,337 - arxiv - INFO - Got empty first page; stopping generation
+2025-02-18 22:50:37,337 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q2
+2025-02-18 22:50:40,338 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: all:DeepSeek AND (all:AI OR all:"artificial intelligence")
+2025-02-18 22:50:40,338 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28all%3ADeepSeek+AND+%28all%3AAI+OR+all%3A%22artificial+intelligence%22%29%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29+AND+submittedDate%3A%5BNOW-365DAYS+TO+NOW%5D&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-18 22:50:41,068 - arxiv - INFO - Got empty first page; stopping generation
+2025-02-18 22:50:41,069 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q3
+2025-02-18 22:50:44,069 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: all:DeepSeek AND (all:"large language model" OR all:LLM)
+2025-02-18 22:50:44,070 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28all%3ADeepSeek+AND+%28all%3A%22large+language+model%22+OR+all%3ALLM%29%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29+AND+submittedDate%3A%5BNOW-365DAYS+TO+NOW%5D&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-18 22:50:44,810 - arxiv - INFO - Got empty first page; stopping generation
+2025-02-18 22:50:44,810 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q4
+2025-02-18 22:50:47,811 - src.agents.arxiv_searcher - INFO - Searching Arxiv for query: all:DeepSeek AND (all:training OR all:optimization OR all:fine-tuning)
+2025-02-18 22:50:47,811 - arxiv - INFO - Requesting page (first: True, try: 0): https://export.arxiv.org/api/query?search_query=%28all%3ADeepSeek+AND+%28all%3Atraining+OR+all%3Aoptimization+OR+all%3Afine-tuning%29%29+AND+%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.LG+OR+cat%3Astat.ML+OR+cat%3Astat.ME+OR+cat%3Astat.TH+OR+cat%3Amath.ST+OR+cat%3Aq-bio.QM%29+AND+submittedDate%3A%5BNOW-365DAYS+TO+NOW%5D&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100
+2025-02-18 22:50:48,518 - arxiv - INFO - Got empty first page; stopping generation
+2025-02-18 22:50:48,519 - src.agents.arxiv_searcher - INFO - Found 0 articles for query q5
+2025-02-18 22:50:49,573 - __main__ - INFO - Execution interrupted by user
